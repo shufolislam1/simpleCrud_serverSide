@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const port = 5000;
-const router = express.Router();
+
 
 const app = express();
 
