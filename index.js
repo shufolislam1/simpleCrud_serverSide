@@ -33,6 +33,18 @@ app.get('/',  async (req,res)=> {
     // console.log('something');
 })
 
+app.delete('/:id', (req,res) =>{
+    const dItem = req.params.id;
+    const deletedItem = test.deleteOne({_id: dItem},(err) =>{
+        if(err){
+            res.status(500).json({
+                error: "There was a server side error!"
+            });
+        }
+    });
+    res.send(deletedItem);
+})
+
 // app listen
 app.listen(port, () =>{
     console.log(`App listening on port ${port}`);
