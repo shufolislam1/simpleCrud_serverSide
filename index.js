@@ -32,6 +32,11 @@ app.get('/',  async (req,res)=> {
      res.send(info);
     // console.log('something');
 })
+app.get('/updateItem/:id',  async (req,res)=> {
+    const productId = req.params.id;
+     const info = await test.findById(productId);
+     res.send(info);
+})
 
 app.delete('/:id', (req,res) =>{
     const dItem = req.params.id;
