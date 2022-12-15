@@ -32,10 +32,25 @@ app.get('/',  async (req,res)=> {
      res.send(info);
     // console.log('something');
 })
+
 app.get('/updateItem/:id',  async (req,res)=> {
     const productId = req.params.id;
      const info = await test.findById(productId);
      res.send(info);
+})
+
+app.put('/updateItem/:id',  async (req,res)=> {
+    const values = JSON.parse(req.body);
+    const productId = req.params.id;
+     const info = await test.updateOne({_id:productId},{
+        // $set:{
+        //     name: req.body.infos.name,
+        //     price: req.body.infos.price,
+        //     quantity: req.body.infos.quantity,
+        // }
+     });
+    //  res.send(info);
+    console.log(values);
 })
 
 app.delete('/:id', (req,res) =>{
