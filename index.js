@@ -53,15 +53,15 @@ app.put('/updateItem/:id',  async (req,res)=> {
     console.log(values);
 })
 
-app.delete('/:id', (req,res) =>{
+app.delete('/:id', async (req,res) =>{
     const dItem = req.params.id;
-    const deletedItem = test.deleteOne({_id: dItem},(err) =>{
+    const deletedItem = await test.deleteOne({_id: dItem},(err) =>{
         if(err){
             res.status(500).json({
                 error: "There was a server side error!"
             });
         }
-    });
+    }).clone()
     res.send(deletedItem);
 })
 
