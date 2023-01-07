@@ -27,11 +27,11 @@ app.post('/addItem', async (req, res) => { //routes er bodol e app. use kora lag
     const savedItem= await addnewItem.save();
     res.send(savedItem);
 })
-app.get('/',  async (req,res)=> {
-     const info = await test.find({});
-     res.send(info);
-    // console.log('something');
-})
+// app.get('/',  async (req,res)=> {
+//      const info = await test.find({});
+//      res.send(info);
+//     // console.log('something');
+// })
 
 app.get('/updateItem/:id',  async (req,res)=> {
     const productId = req.params.id;
