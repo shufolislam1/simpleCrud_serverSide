@@ -65,6 +65,10 @@ app.delete('/:id', async (req,res) =>{
     res.send(deletedItem);
 })
 
+app.get('/', (req,res) => {
+    res.send("Hellow world");
+})
+
 // app listen
 app.listen(port, () =>{
     console.log(`App listening on port ${port}`);
